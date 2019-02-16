@@ -2,7 +2,7 @@ import java.awt.List;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.stream.Collectors;
-public class test {
+public class Day1 {
 	public Boolean calculate(int[] array,int k) {
 		for(int i=0;i<array.length;i++)
 		{
@@ -23,7 +23,7 @@ public class test {
 		
 		
 		int k = scan.nextInt();
-		test obj = new test();
+		Day1 obj = new Day1();
 		System.out.println(obj.calculate(array, k));
 	}
 
