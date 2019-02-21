@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 //space. In other words, find the lowest positive integer that does not exist in the array. The
 //array can contain duplicates and negative numbers as well.
 
-public class Day2 {
+public class Problem4 {
 	public int calculate(int[] array)
 	{
 		List<Integer> sortedList = Arrays.stream(array).boxed().filter(i->i>=0).sorted().collect(Collectors.toList());
@@ -28,7 +28,7 @@ public class Day2 {
 		array[i] = scan.nextInt();
 	}
 	
-	Day2 obj = new Day2();
+	Problem4 obj = new Problem4();
 	System.out.println(obj.calculate(array));
 
 	}
