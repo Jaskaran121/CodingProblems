@@ -41,7 +41,10 @@ public class Problem8 {
 	public Boolean calculateSubTreeSize(Node top)
 	{
 		List<Integer> myList = new ArrayList<>();
-		
+		if(top.left!=null && top.left.data!=top.data)
+			return false;
+		if(top.right!=null && top.right.data!=top.data)
+			return false;
 		preOrderTraversal(top,myList);
 		if(myList.size()==1)
 			return true;
