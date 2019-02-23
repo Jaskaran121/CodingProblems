@@ -1,5 +1,7 @@
 import java.util.*;
 import java.util.stream.Collectors;
+//A unival tree (which stands for "universal value") is a tree where all nodes under it have the same value.
+//This solution uses o(n2).
 public class Problem8 {
 	public int calculate(Node root)
 	{
