@@ -10,11 +10,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.List;
 //Given a specified total t and a list of n integers, find number of distinct sums,
-//using numbers from the list of n integers, that add up to the total t. For example,
-//if t = 4, n = 6, and the list is [4, 3, 2, 2, 1, 1], then there are four different sums
-//that equal 4: 4, 3+1, 2+2, and 2+1+1. (A number can be used within a sum as
-//many times as it appears in the list, and a single number counts as a sum.) Your
-//job is to solve this problem in general.
+//using numbers from the list of n integers, that add up to the total t.
 public class PossibleCombinations {
 	private List<List<Integer>> visited = new ArrayList<>();
     private void calculateCombinations(Integer[] array,int sum)
