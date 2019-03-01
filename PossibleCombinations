@@ -35,7 +35,7 @@ public class PossibleCombinations {
     private void calculateCombinations(int[] numbers,Long[] counts,int pos,int[] output,int length,int sum)
     {
         printOutput(output,length,sum);
-        for(int i=0;i<numbers.length;i++)
+        for(int i=pos;i<numbers.length;i++)
         {
             if(counts[i]==0)
                 continue;
@@ -50,21 +50,14 @@ public class PossibleCombinations {
     {
         int sum1=0;
         String x ="";
-        ArrayList<Integer> myList = new ArrayList<>();
         for(int i=0;i<length;i++)
         {
             sum1 = sum1 + output[i];
-            x = x + output[i];
-            myList.add(output[i]);
+            x = x + output[i]; 
         }
-        
-        Collections.sort(myList);
-        
-        if(sum==sum1 && !visited.contains(myList)) {
-        
-        	System.out.println(x);
-        }
-        visited.add(myList);  
+        if(sum==sum1 ) {
+	System.out.println(x);
+        }   
     }
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
