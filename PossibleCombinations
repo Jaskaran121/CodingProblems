@@ -1,0 +1,87 @@
+
+import java.util.ArrayList;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+import java.util.List;
+//Given a specified total t and a list of n integers, find number of distinct sums,
+//using numbers from the list of n integers, that add up to the total t. For example,
+//if t = 4, n = 6, and the list is [4, 3, 2, 2, 1, 1], then there are four different sums
+//that equal 4: 4, 3+1, 2+2, and 2+1+1. (A number can be used within a sum as
+//many times as it appears in the list, and a single number counts as a sum.) Your
+//job is to solve this problem in general.
+public class PossibleCombinations {
+	private List<List<Integer>> visited = new ArrayList<>();
+    private void calculateCombinations(Integer[] array,int sum)
+    {
+        Map<Integer,Long> myMap = new HashMap<Integer,Long>();
+    //Grouping numbers according to there count.
+    myMap = Arrays.stream(array).collect(Collectors.groupingBy(Function.identity(),Collectors.counting()));
+    int[] numbers = new int[myMap.size()];
+    Long[] counts = new Long[myMap.size()];
+    int index = 0;
+    for(int i:myMap.keySet()){
+        numbers[index] = i;
+        counts[index] = myMap.get(i);
+        index++;
+    }
+        
+    int[] output = new int[array.length];
+    
+    calculateCombinations(numbers,counts,0,output,0,sum);
+    }
+    
+    private void calculateCombinations(int[] numbers,Long[] counts,int pos,int[] output,int length,int sum)
+    {
+        printOutput(output,length,sum);
+        for(int i=0;i<numbers.length;i++)
+        {
+            if(counts[i]==0)
+                continue;
+            output[length] = numbers[i];
+            counts[i]--;
+            calculateCombinations(numbers,counts,i,output,length+1,sum);
+            counts[i]++;
+        }
+    }
+    
+    public void printOutput(int[] output,int length,int sum)
+    {
+        int sum1=0;
+        String x ="";
+        ArrayList<Integer> myList = new ArrayList<>();
+        for(int i=0;i<length;i++)
+        {
+            sum1 = sum1 + output[i];
+            x = x + output[i];
+            myList.add(output[i]);
+        }
+        
+        Collections.sort(myList);
+        
+        if(sum==sum1 && !visited.contains(myList)) {
+        
+        	System.out.println(x);
+        }
+        visited.add(myList);  
+    }
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int sum = scan.nextInt();
+        int size = scan.nextInt();
+        Integer[] array = new Integer[size];
+        for(int i=0;i<size;i++)
+        {
+            array[i] = scan.nextInt();
+        }
+        
+        PossibleCombinations obj = new PossibleCombinations();
+        obj.calculateCombinations(array,sum);
+    }
+
+}
