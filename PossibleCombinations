@@ -12,10 +12,9 @@ import java.util.List;
 //Given a specified total t and a list of n integers, find number of distinct sums,
 //using numbers from the list of n integers, that add up to the total t.
 public class PossibleCombinations {
-	private List<List<Integer>> visited = new ArrayList<>();
     private void calculateCombinations(Integer[] array,int sum)
     {
-        Map<Integer,Long> myMap = new HashMap<Integer,Long>();
+    Map<Integer,Long> myMap = new HashMap<Integer,Long>();
     //Grouping numbers according to there count.
     myMap = Arrays.stream(array).collect(Collectors.groupingBy(Function.identity(),Collectors.counting()));
     int[] numbers = new int[myMap.size()];
