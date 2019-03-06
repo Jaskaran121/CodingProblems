@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
-
+//A snake Ladder game giving output as the winner of the game.
 public class snakeLadder {
 static int indexPlayerA = 0;
 static int indexPlayerB = 0;
