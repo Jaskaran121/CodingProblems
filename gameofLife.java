@@ -1,5 +1,21 @@
 import java.util.Scanner;
-
+////The game of life is a game which is played on a field of cells. Cells are arranged in a rectangular grid. Each cell has at most eight
+//neighbours, i.e. adjacent cells. Each cell in the field is either occupied by an organism or is blank.
+//The objectiveofthe game isto simulate the life ofthe organisms present
+//in the field, generation after generation. The only work of the organism
+//isto either reproduce or die!
+//The rules of reproduction are given asfollows (examplesin figure):
+//1. If an organism has 0 or 1 neighbours, it will die out of loneliness in
+//the next generation
+//2. If an organism has 4 or more neighbours, it will die of crowding in
+//the next generation
+//3. If an organism has 2 or 3 neighbours, it will prosper and survive into
+//the next generation
+//4. If an unoccupied cell has exactly three neighbours, then an
+//organism takes birth in the next generation
+//You are required to write a Java program which simulatesthe life of the
+//organisms and outputs the state of the field after 'N' generations.
+//Here input 0 means a blank cell and input 1 means a neighbouring cell is present.
 public class gameofLife {
 	public void calculate(int row,int column,int[][] inputArray,int round)
 	{
